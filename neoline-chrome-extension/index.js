@@ -10,6 +10,8 @@ window.addEventListener('NEOLine.N3.EVENT.READY', async () => {
     dapi.invokeRead({ scriptHash: GAS, operation: 'balanceOf', args: [{ type: 'Address', value: address }], signers: [] }).then(v => document.getElementById('gas-balance').innerText = v.stack[0].value / 100000000);
     dapi.invokeRead({ scriptHash: bNEO, operation: 'balanceOf', args: [{ type: 'Address', value: address }], signers: [] }).then(v => document.getElementById('neo-deposited').innerText = v.stack[0].value / 100000000);
     dapi.invokeRead({ scriptHash: bNEO, operation: 'reward', args: [{ type: 'Address', value: address }], signers: [] }).then(v => document.getElementById('gas-unclaimed').innerText = v.stack[0].value / 100000000);
+    dapi.invokeRead({ scriptHash: bNEO, operation: 'totalSupply', args: [], signers: [] }).then(v => document.getElementById('neo-total').innerText = v.stack[0].value / 100000000);
+    dapi.invokeRead({ scriptHash: GAS, operation: 'balanceOf', args: [{ type: 'Hash160', value: bNEO }], signers: [] }).then(v => document.getElementById('gas-total').innerText = v.stack[0].value / 100000000);
 
     const notice = v => alert(`TX ${v.txid} SENT\nVIEW THE TX ON EXPLORERS\nREFRESH THIS PAGE IF NEEDED\n`)
 
