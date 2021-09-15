@@ -1,7 +1,7 @@
 window.addEventListener('NEOLine.N3.EVENT.READY', async () => {
     const NEO = '0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5';
     const GAS = '0xd2a4cff31913016155e38e474a2c06d08be276cf';
-    const bNEO = '0x5e815f1d964de2506c2f1b5918d69a3ecb44d66c';
+    const bNEO = '0x7a685bb2527efff262d3b565e8df6395528e8052';
     document.getElementById('install-neoline-chrome-extension').style.display = 'none';
     const dapi = new NEOLineN3.Init();
     const { address } = await dapi.getAccount();
